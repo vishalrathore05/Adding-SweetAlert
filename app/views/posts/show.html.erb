@@ -1,0 +1,92 @@
+<style>
+  /* CSS styles for the show page */
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .notice {
+    color: green;
+    margin-bottom: 20px;
+  }
+
+  .post {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .post h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .post p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+  }
+
+  .button:hover {
+    background-color: #0069d9;
+  }
+
+  .delete-alertbox {
+    display: inline-block;
+  }
+
+  .delete-alertbox:hover {
+    background-color: #dc3545;
+  }
+
+  .delete-alertbox:active {
+    background-color: #c82333;
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete, form_class: 'delete-alertbox' %>
+ 
+ 
+</div>
+
+<script>
+  function defaultAlertBtn() {
+    alert("Button has been clicked")
+  }
+  function sweetAlertBtn() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Button has been clicked',
+    })
+  }
+</script>
