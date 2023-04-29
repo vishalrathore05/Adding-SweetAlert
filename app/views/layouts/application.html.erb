@@ -8,9 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag "delete_confirmation_dialog" %>
-  </head>
+   <%= javascript_include_tag "delete_confirmation_dialog" %>
+    <%= javascript_include_tag "success_confirmation_dialog"%>
 
+    <!-- Include the SweetAlert2 library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
   <body>
     <%= yield %>
   </body>

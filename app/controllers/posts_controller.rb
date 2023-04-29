@@ -22,14 +22,14 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
+  
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.js { render js: "Swal.fire('Success', 'Post was successfully created.', 'success')" }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render :new }
+        format.js { render js: "Swal.fire('Error', 'Failed to create post.', 'error')" }
       end
     end
   end
